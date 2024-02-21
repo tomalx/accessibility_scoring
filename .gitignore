@@ -1,2 +1,3 @@
 txt/mapbox_token.txt
 maps/leaflet_choropleth_accessibility_score.html
+maps/*.html

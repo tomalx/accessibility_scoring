@@ -1,4 +1,4 @@
-# script to convert outputs of TRACC rus into accessibility metrics
+# script to convert outputs of TRACC runs into accessibility metrics
 
 
 # set wd and load libraries
@@ -30,19 +30,19 @@ for (i in 1:length(files)) {
   df_name <- str_remove(files[i], "13 Connectivity Maps 2023\\\\TRACC_TAFF2023_CSVfiles\\\\")
   df_name <- str_remove(df_name, ".csv")
   df_name <- str_remove(df_name, "WECAplus_TAF_2023_")
-  assign(df_name, read.csv(files[i], skip=35, header=TRUE, stringsAsFactors = FALSE))
+  assign(paste0("pt_",df_name), read.csv(files[i], skip=35, header=TRUE, stringsAsFactors = FALSE))
   rm(df_name, i)
 }
 
 
-for (i in 1:length(files)) {
-  df_name <- str_remove(files[i], "13 Connectivity Maps 2023\\\\TRACC_TAFF2023_CSVfiles\\\\")
-  df_name <- str_remove(df_name, ".csv")
-  df_name <- str_remove(df_name, "WECAplus_TAF_2023_")
-  df_name <- paste0("meta_", df_name)
-  assign(df_name, read.csv(files[i], skip = 10, nrows = 1, header=FALSE, sep = c(":")) )
-  rm(df_name, i)
-}
+# for (i in 1:length(files)) {
+#   df_name <- str_remove(files[i], "13 Connectivity Maps 2023\\\\TRACC_TAFF2023_CSVfiles\\\\")
+#   df_name <- str_remove(df_name, ".csv")
+#   df_name <- str_remove(df_name, "WECAplus_TAF_2023_")
+#   df_name <- paste0("meta_", df_name)
+#   assign(paste0("pt_",df_name), read.csv(files[i], skip = 10, nrows = 1, header=FALSE, sep = c(":")) )
+#   rm(df_name, i)
+# }
 rm(files)
 
 
