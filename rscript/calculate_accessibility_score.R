@@ -1,6 +1,7 @@
 # calculate accessibility score for each hexagon
 
 # set working directory
+library(tidyverse)
 tryCatch({
   print("Attempting to change working directory to Transport Appraisal Framework…")
   setwd("C:\\Users\\tom.alexander1\\OneDrive - West Of England Combined Authority\\Transport\\7.0 Data\\02 Transport Appraisal Framework")
